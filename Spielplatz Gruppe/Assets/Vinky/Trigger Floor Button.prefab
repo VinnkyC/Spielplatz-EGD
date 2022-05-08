@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3579925434858886800}
   - component: {fileID: 3579925434858886801}
   - component: {fileID: 3579925434858886798}
-  - component: {fileID: 3579925434858886799}
   - component: {fileID: 3579925434733989011}
+  - component: {fileID: 1933814934309814667}
   m_Layer: 0
   m_Name: Trigger Floor Button
   m_TagString: Untagged
@@ -31,6 +31,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.69, y: 0.11, z: 0}
   m_LocalScale: {x: 1, y: 0.14355, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,6 +55,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -97,21 +99,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 4.700217, z: 1}
   m_Center: {x: 0, y: 1.8501087, z: 0}
---- !u!114 &3579925434858886799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3579925434858886796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d08e155866b007b458f3590663bf440a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballToLaunch: {fileID: 4505319855096242741, guid: 20e682b22d05b9844a16213c2cc64221, type: 3}
-  spawner: {fileID: 7660250140103313350, guid: 27963270492791e4aa490590afccc23a, type: 3}
-  force: 100
 --- !u!82 &3579925434733989011
 AudioSource:
   m_ObjectHideFlags: 0
@@ -208,3 +195,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1933814934309814667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3579925434858886796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d08e155866b007b458f3590663bf440a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballToLaunch: {fileID: 0}
+  spawner: {fileID: 0}
+  launcherBoard: {fileID: 0}
+  force: 100
+  juicy: 0
+  launchControlSensitivity: 0
