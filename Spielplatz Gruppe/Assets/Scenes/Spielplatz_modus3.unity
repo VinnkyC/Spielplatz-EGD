@@ -3162,6 +3162,14 @@ PrefabInstance:
       propertyPath: launchControlSensitivity
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 165284654817296703, guid: 61ea5823dedcbce4d8408d2cc3ba0da5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 165284654817296703, guid: 61ea5823dedcbce4d8408d2cc3ba0da5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.07
+      objectReference: {fileID: 0}
     - target: {fileID: 165284655222394535, guid: 61ea5823dedcbce4d8408d2cc3ba0da5, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.283
