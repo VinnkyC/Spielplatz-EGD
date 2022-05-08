@@ -105,14 +105,14 @@ public class TakeAndThrow : MonoBehaviour
             }
 
             //fix here can't throw ball 
-            /*Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             Physics.Raycast(ray, out hit, RayDistance);
             if (hit.transform.gameObject.tag == "Paint")
             {
                 hit.transform.gameObject.AddComponent<Rigidbody>();
                 hit.transform.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(10, 100), 0, 0));
                 PingSFX.Play();
-            }*/
+            }
 
         }
 
