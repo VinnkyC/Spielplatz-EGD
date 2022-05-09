@@ -7,6 +7,14 @@ TagManager:
   - stufe1
   - stufe2
   - stufe3
+  - BasketballPointsText
+  - Paint
+  - Button
+  - BallSpawner
+  - BotBasketballCollider
+  - TopBasketballCollider
+  - Ball
+  - Terrain
   layers:
   - Default
   - TransparentFX

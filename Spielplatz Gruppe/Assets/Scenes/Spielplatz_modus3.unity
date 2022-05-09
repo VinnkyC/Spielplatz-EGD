@@ -1216,6 +1216,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 681caea7d7db32e468aa5bc7e60da2f0, type: 3}
+--- !u!82 &240805310 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1535780140512765474, guid: cccd00852b082634098f64b815692dcc, type: 3}
+  m_PrefabInstance: {fileID: 1619416013}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &248074596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000011445301418, guid: 5279a4d472407d847a1cf22b68805c63, type: 3}
@@ -5781,6 +5786,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2482288872984284880, guid: cccd00852b082634098f64b815692dcc, type: 3}
+      propertyPath: GroundTypes.Array.data[1].runningSound
+      value: 
+      objectReference: {fileID: 240805310}
+    - target: {fileID: 3360416824484659176, guid: cccd00852b082634098f64b815692dcc, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7578589746300599873, guid: cccd00852b082634098f64b815692dcc, type: 3}
       propertyPath: jumpStrength
       value: 3
@@ -7103,7 +7116,7 @@ GameObject:
   - component: {fileID: 1890132264}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

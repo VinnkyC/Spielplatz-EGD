@@ -42,9 +42,7 @@ public class FloorTriggerLaunch : MonoBehaviour
                 shootingBall();
             }
         }
-        
-
-       
+      
     }
 
     private void OnTriggerEnter(Collider other)
@@ -90,12 +88,12 @@ public class FloorTriggerLaunch : MonoBehaviour
         float angle = launchBoardTransform.localEulerAngles.x;
         angle = (angle > 180) ? angle - 360 : angle;
 
-        if (Input.GetKey(KeyCode.O) && angle <= 10f)
+        if (Input.GetKey(KeyCode.L) && angle <= 10f)
         {
             launchBoardTransform.Rotate(launchControlSensitivity * Time.deltaTime * Vector3.right);
         }
 
-        if (Input.GetKey(KeyCode.L) && angle >= -10f)
+        if (Input.GetKey(KeyCode.O) && angle >= -10f)
         {
             launchBoardTransform.Rotate(launchControlSensitivity * Time.deltaTime * -Vector3.right);
         }
