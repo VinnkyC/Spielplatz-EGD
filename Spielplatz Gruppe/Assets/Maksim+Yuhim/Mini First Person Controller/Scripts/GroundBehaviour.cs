@@ -15,6 +15,8 @@ public class GroundBehaviour : MonoBehaviour
     {
         firstPersonAudio = GetComponent<FirstPersonAudio>();
         setGroundType(GroundTypes[0]);
+
+        
     }
 
     // Update is called once per frame
@@ -23,15 +25,6 @@ public class GroundBehaviour : MonoBehaviour
         DetectGround();
     }
 
-    /*private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.transform.CompareTag("Terrain"))
-            setGroundType(GroundTypes[1]);
-        else if (hit.transform.tag == "Grass")
-            setGroundType(GroundTypes[2]);
-        else
-            setGroundType(GroundTypes[0]);
-    }*/
 
     public void setGroundType(GroundType ground)
     {
@@ -39,6 +32,9 @@ public class GroundBehaviour : MonoBehaviour
         {
             firstPersonAudio.stepAudio = ground.footstepSounds;
             firstPersonAudio.runningAudio = ground.runningSound;
+
+           //ground.initializeLandingSFX();
+            firstPersonAudio.landingSFX = ground.landingSFX;
             currentGround = ground.name;
         }
     }
@@ -50,6 +46,7 @@ public class GroundBehaviour : MonoBehaviour
             Debug.Log(hit.collider.tag);
             if (hit.collider.tag =="Terrain")
                 setGroundType(GroundTypes[1]);
+            //Here put more Ground Tags
             /*else if (hit.collider.tag == "Grass")
                 setGroundType(GroundTypes[2]);*/
             else
@@ -65,4 +62,8 @@ public class GroundType
 
     public AudioSource footstepSounds;
     public AudioSource runningSound;
+
+    //Need 3 AudioClips
+    public AudioClip[] landingSFX;
+
 }

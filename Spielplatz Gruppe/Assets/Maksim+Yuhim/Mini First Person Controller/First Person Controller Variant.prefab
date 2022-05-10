@@ -515,9 +515,11 @@ MonoBehaviour:
   - name: normal
     footstepSounds: {fileID: 7578589746619549250}
     runningSound: {fileID: 7578589746325051832}
+    landingSFX: []
   - name: terrain
     footstepSounds: {fileID: 1676019693625629691}
     runningSound: {fileID: 1535780140512765474}
+    landingSFX: []
   firstPersonController: {fileID: 7578589746300599878}
   currentGround: 
 --- !u!1 &7578589746300599878
