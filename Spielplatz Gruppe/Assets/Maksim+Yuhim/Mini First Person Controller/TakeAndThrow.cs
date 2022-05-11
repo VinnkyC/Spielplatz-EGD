@@ -58,32 +58,35 @@ public class TakeAndThrow : MonoBehaviour
                     GRABI = 0;
                 }
             }
-            if (hit.transform.gameObject.tag == "Button")
+            if (hit.transform)
             {
-                spawner2.startspawning = true;
-                buttonPushSFX.Play();
-                hit.transform.gameObject.AddComponent<Rigidbody>();
-            }
-            /*if (hit.transform.gameObject.tag == "Paint")
-            {
-                hit.transform.gameObject.AddComponent<Rigidbody>();
-                hit.transform.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(10, 100), 0,0));
-                PingSFX.Play();
-            }*/
-            if (hit.transform.gameObject.tag == "stufe1")
-            {
-                Debug.Log("Stufe1");
-                StartCoroutine(LoadLevel(0));
-            }
-            else if (hit.transform.gameObject.tag == "stufe2")
-            {
-                Debug.Log("Stufe2");
-                StartCoroutine(LoadLevel(1));
-            }
-            else if (hit.transform.gameObject.tag == "stufe3")
-            {
-                Debug.Log("Stufe3");
-                StartCoroutine(LoadLevel(2));
+                if (hit.transform.gameObject.tag == "Button")
+                {
+                    spawner2.startspawning = true;
+                    buttonPushSFX.Play();
+                    hit.transform.gameObject.AddComponent<Rigidbody>();
+                }
+                if (hit.transform.gameObject.tag == "Paint")
+                {
+                    hit.transform.gameObject.AddComponent<Rigidbody>();
+                    hit.transform.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(10, 100), 0, 0));
+                    PingSFX.Play();
+                }
+                if (hit.transform.gameObject.tag == "stufe1")
+                {
+                    Debug.Log("Stufe1");
+                    StartCoroutine(LoadLevel(0));
+                }
+                else if (hit.transform.gameObject.tag == "stufe2")
+                {
+                    Debug.Log("Stufe2");
+                    StartCoroutine(LoadLevel(1));
+                }
+                else if (hit.transform.gameObject.tag == "stufe3")
+                {
+                    Debug.Log("Stufe3");
+                    StartCoroutine(LoadLevel(2));
+                }
             }
 
             Debug.Log(GRABI);
@@ -105,15 +108,17 @@ public class TakeAndThrow : MonoBehaviour
             }
 
             //fix here can't throw ball 
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+          /*  Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             Physics.Raycast(ray, out hit, RayDistance);
-            if (hit.transform.gameObject.tag == "Paint")
+            if (hit.transform)
             {
-                hit.transform.gameObject.AddComponent<Rigidbody>();
-                hit.transform.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(10, 100), 0, 0));
-                PingSFX.Play();
-            }
-
+                if (hit.transform.gameObject.tag == "Paint")
+                {
+                    hit.transform.gameObject.AddComponent<Rigidbody>();
+                    hit.transform.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(10, 100), 0, 0));
+                    PingSFX.Play();
+                }
+            }*/
         }
 
         if (Grab)
