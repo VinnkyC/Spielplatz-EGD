@@ -35,7 +35,7 @@ public class BasketballRingScript : MonoBehaviour
             {
                 basketBallPoints++;
                 PointSFX.Play();
-                basketballPointsText.GetComponent<Text>().text = "Basketball Points: " +  basketBallPoints.ToString();
+                //basketballPointsText.GetComponent<Text>().text = "Basketball Points: " +  basketBallPoints.ToString();
                 topColliderFirst = false;
             }
         }

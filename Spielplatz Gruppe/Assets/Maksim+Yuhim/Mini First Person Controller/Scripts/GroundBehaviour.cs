@@ -40,10 +40,8 @@ public class GroundBehaviour : MonoBehaviour
 
     public void DetectGround()
     {
-        if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit,Mathf.Infinity))
+        if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit))
         {
-            Debug.DrawRay(transform.position, Vector3.down, color:Color.red);
-            Debug.Log(hit.collider.tag);
             if (hit.collider.tag =="Terrain")
                 setGroundType(GroundTypes[1]);
             //Here put more Ground Tags
