@@ -15,12 +15,11 @@ public class GroundBehaviour : MonoBehaviour
     {
         firstPersonAudio = GetComponent<FirstPersonAudio>();
         setGroundType(GroundTypes[0]);
-
         
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         DetectGround();
     }
@@ -41,8 +40,9 @@ public class GroundBehaviour : MonoBehaviour
 
     public void DetectGround()
     {
-        if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit))
+        if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit,Mathf.Infinity))
         {
+            Debug.DrawRay(transform.position, Vector3.down, color:Color.red);
             Debug.Log(hit.collider.tag);
             if (hit.collider.tag =="Terrain")
                 setGroundType(GroundTypes[1]);
