@@ -106,7 +106,9 @@ public class FloorTriggerLaunch : MonoBehaviour
         {
             Debug.Log("F Pressed");
             launchSound.Play();
-            ballRigid.AddForce(Vector3.forward * force, ForceMode.Impulse);
+
+
+            ballRigid.AddForce((-launchBoardTransform.forward) * force, ForceMode.Impulse);
             ballReady = false;
         }
     }
