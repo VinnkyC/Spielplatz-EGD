@@ -42,7 +42,6 @@ public class FloorTriggerLaunch : MonoBehaviour
                 shootingBall();
             }
         }
-      
     }
 
     private void OnTriggerEnter(Collider other)
@@ -85,17 +84,29 @@ public class FloorTriggerLaunch : MonoBehaviour
     //launchBoard controller
     public void rotateLaunchBoard()
     {
-        float angle = launchBoardTransform.localEulerAngles.x;
-        angle = (angle > 180) ? angle - 360 : angle;
+        float angleX = launchBoardTransform.localEulerAngles.x;
+        float angleY = launchBoardTransform.localEulerAngles.y;
+        angleX = (angleX > 180) ? angleX - 360 : angleX;
+        angleY = (angleY > 180) ? angleY - 360 : angleY;
 
-        if (Input.GetKey(KeyCode.L) && angle <= 10f)
+        if (Input.GetKey(KeyCode.K) && angleX <= 10f)
         {
             launchBoardTransform.Rotate(launchControlSensitivity * Time.deltaTime * Vector3.right);
         }
 
-        if (Input.GetKey(KeyCode.O) && angle >= -10f)
+        if (Input.GetKey(KeyCode.I) && angleX >= -10f)
         {
             launchBoardTransform.Rotate(launchControlSensitivity * Time.deltaTime * -Vector3.right);
+        }
+
+        if (Input.GetKey(KeyCode.L) && angleY <= 10f)
+        {
+            launchBoardTransform.Rotate(launchControlSensitivity * Time.deltaTime * Vector3.up);
+        }
+
+        if (Input.GetKey(KeyCode.J) && angleY >= -10f)
+        {
+            launchBoardTransform.Rotate(launchControlSensitivity * Time.deltaTime * -Vector3.up);
         }
 
     }

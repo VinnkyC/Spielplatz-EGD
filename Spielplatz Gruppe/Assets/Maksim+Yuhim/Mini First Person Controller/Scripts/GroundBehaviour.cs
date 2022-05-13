@@ -9,6 +9,7 @@ public class GroundBehaviour : MonoBehaviour
     public string currentGround;
 
     private FirstPersonAudio firstPersonAudio;
+    RaycastHit hit;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class GroundBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void LateUpdate()
     {
         DetectGround();
     }
@@ -29,8 +30,8 @@ public class GroundBehaviour : MonoBehaviour
     {
         if(currentGround != ground.name)
         {
-            firstPersonAudio.stepAudio = ground.footstepSounds;
-            firstPersonAudio.runningAudio = ground.runningSound;
+            firstPersonAudio.stepAudio.clip = ground.footstepSounds;
+            firstPersonAudio.runningAudio.clip = ground.runningSound;
 
            //ground.initializeLandingSFX();
             firstPersonAudio.landingSFX = ground.landingSFX;
@@ -40,16 +41,13 @@ public class GroundBehaviour : MonoBehaviour
 
     public void DetectGround()
     {
-
-        if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit))
+        if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit,2))
         {
-            if (hit.collider.CompareTag("Terrain")) 
-            { 
+            if (hit.collider.tag =="Terrain")
                 setGroundType(GroundTypes[1]);
-            }
             //Here put more Ground Tags
-            /*else if (hit.collider.tag == "Grass")
-                setGroundType(GroundTypes[2]);*/
+            else if (hit.collider.tag == "Wood")
+                setGroundType(GroundTypes[2]);
             else
                 setGroundType(GroundTypes[0]);
         }
@@ -61,8 +59,8 @@ public class GroundType
 {
     public string name;
 
-    public AudioSource footstepSounds;
-    public AudioSource runningSound;
+    public AudioClip footstepSounds;
+    public AudioClip runningSound;
 
     //Need 3 AudioClips
     public AudioClip[] landingSFX;

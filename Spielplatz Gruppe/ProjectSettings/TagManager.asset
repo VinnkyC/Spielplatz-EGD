@@ -15,6 +15,7 @@ TagManager:
   - TopBasketballCollider
   - Ball
   - Terrain
+  - Wood
   layers:
   - Default
   - TransparentFX

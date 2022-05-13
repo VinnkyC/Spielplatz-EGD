@@ -8,7 +8,9 @@ public class FirstPersonAudio : MonoBehaviour
 
     [Header("Step")]
     public AudioSource stepAudio;
+    public AudioClip[] stepSFX;
     public AudioSource runningAudio;
+    public AudioClip[] runningSFX;
     [Tooltip("Minimum velocity for moving audio to play")]
     /// <summary> "Minimum velocity for moving audio to play" </summary>
     public float velocityThreshold = .01f;
@@ -31,7 +33,9 @@ public class FirstPersonAudio : MonoBehaviour
 
     AudioSource[] MovingAudios => new AudioSource[] { stepAudio, runningAudio, crouchedAudio };
 
-
+    private int currentRandomNumber;
+    private int newRandomNumber;
+    private int newestRandomNumber;
     void Reset()
     {
         // Setup stuff.
@@ -107,8 +111,56 @@ public class FirstPersonAudio : MonoBehaviour
         if (audioToPlay && !audioToPlay.isPlaying)
         {
             audioToPlay.Play();
+           
         }
     }
+
+    /*void SetPlayingStepAudio(AudioSource audioToPlay)
+    {
+        // Pause all MovingAudios.
+        foreach (var audio in MovingAudios.Where(audio => audio != audioToPlay && audio != null))
+        {
+            audio.Pause();
+        }
+
+        // Play audioToPlay if it was not playing.
+        if (audioToPlay && !audioToPlay.isPlaying)
+        {
+            newestRandomNumber = Random.Range(0, maxExclusive: stepSFX.Length-1);
+            while ((currentRandomNumber == newestRandomNumber)&&(newestRandomNumber==newRandomNumber))
+            {
+                newestRandomNumber = Random.Range(0, maxExclusive: stepSFX.Length - 1);
+            }
+            audioToPlay.PlayOneShot(stepSFX[newestRandomNumber]);
+            Debug.Log(newestRandomNumber);
+            currentRandomNumber = newRandomNumber;
+            newRandomNumber = newestRandomNumber;
+        }
+        
+    }*/
+
+   /* void SetPlayingRunningAudio(AudioSource audioToPlay)
+    {
+        // Pause all MovingAudios.
+        foreach (var audio in MovingAudios.Where(audio => audio != audioToPlay && audio != null))
+        {
+            audio.Pause();
+        }
+
+        // Play audioToPlay if it was not playing.
+        if (audioToPlay && !audioToPlay.isPlaying)
+        {
+            newestRandomNumber = Random.Range(0, maxExclusive: runningSFX.Length -1);
+            while ((currentRandomNumber == newestRandomNumber) && (newestRandomNumber == newRandomNumber))
+            {
+                newRandomNumber = Random.Range(0, maxExclusive: runningSFX.Length-1);
+            }
+            audioToPlay.PlayOneShot(runningSFX[newestRandomNumber]);
+            Debug.Log(runningSFX[newestRandomNumber]);
+            currentRandomNumber = newRandomNumber;
+            newRandomNumber = newestRandomNumber;
+        }
+    }*/
 
     #region Play instant-related audios.
     void PlayLandingAudio() => PlayRandomClip(landingAudio, landingSFX);
